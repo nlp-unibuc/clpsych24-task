@@ -1,2 +1,2 @@
 # clpsych24-task
-This repo contains our submission to the CLPsych 2024 Shared Task 
+This repo contains the work of the UniBuc Archaeology team for CLPsych’s 2024 Shared Task. 
