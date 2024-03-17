@@ -1,9 +1,11 @@
 # Cheap Ways of Extracting Clinical Markers from Texts
 This repo contains the work of the UniBuc Archaeology team (Anastasia Sandu, Teodor Mihailescu, Sergiu Nisioi ) for [CLPsych’s 2024 Shared Task](https://clpsych.org/shared-task-2024/). 
 
+Full paper [here](https://aclanthology.org/2024.clpsych-1.25/)
 
 
 ## TL;DR
+
 
 - a classifier paired with a machine learning explainability method can be a useful tool for identifying important sentences, phrases, and highlights that are clinically representative 
 - sentences containing important features have different (statistically significant) linguistic patterns that can distinguish them from the rest
@@ -128,3 +130,28 @@ Adverbs show no difference between the two classes, and adjectives and nouns obt
 Our brief analyses show that important sentences have different (statistically significant) linguistic patterns that can distinguish them from the rest. We believe that this could be one of the reasons behind the good evaluation scores and the suitability of the GOML approach to extract highlights from this particular dataset.
 
 
+## Cite
+```
+@inproceedings{sandu-etal-2024-cheap,
+    title = "Cheap Ways of Extracting Clinical Markers from Texts",
+    author = "Sandu, Anastasia  and
+      Mihailescu, Teodor  and
+      Nisioi, Sergiu",
+    editor = "Yates, Andrew  and
+      Desmet, Bart  and
+      Prud{'}hommeaux, Emily  and
+      Zirikly, Ayah  and
+      Bedrick, Steven  and
+      MacAvaney, Sean  and
+      Bar, Kfir  and
+      Ireland, Molly  and
+      Ophir, Yaakov",
+    booktitle = "Proceedings of the 9th Workshop on Computational Linguistics and Clinical Psychology (CLPsych 2024)",
+    month = mar,
+    year = "2024",
+    address = "St. Julians, Malta",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2024.clpsych-1.25",
+    pages = "256--263",
+}
+```
