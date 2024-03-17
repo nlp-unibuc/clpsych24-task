@@ -22,7 +22,7 @@ cd src && wget https://huggingface.co/TheBloke/OpenHermes-2.5-Mistral-7B-GGUF/re
 
 ## Pipelines
 <div style="width: 100%;">
-  <img width="600" src="https://github.com/senisioi/archaeology/blob/main/img/pipelines.png?raw=true">
+  <img width="600" src="https://github.com/nlp-unibuc/clpsych24-task/blob/main/img/pipelines.png?raw=true">
 </div>
 
 
@@ -38,6 +38,7 @@ cd src && wget https://huggingface.co/TheBloke/OpenHermes-2.5-Mistral-7B-GGUF/re
 | TaskA_3.1 + LLM    |      0.919     |      0.891     |      0.560      |      0.905     |      0.971     |      0.085     |
 | A+E_3.1 + LLM      |      0.918     |      0.892     |  0.578 |      0.905     | 0.974 | 0.076 |
 | LLM duplicates      | 0.941 | 0.907 |      0.398      | 0.924 |      0.964     |      0.104     |
+
 
 ## Topics
 <div style="width: 100%;">
