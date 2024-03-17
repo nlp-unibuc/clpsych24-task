@@ -30,7 +30,7 @@ cd src && wget https://huggingface.co/TheBloke/OpenHermes-2.5-Mistral-7B-GGUF/re
 ```
 
 ## Pipelines
-<div style="width: 100%;">
+<div align="center" style="width: 100%;">
   <img width="600" src="https://github.com/nlp-unibuc/clpsych24-task/blob/main/img/pipelines.png?raw=true">
 </div>
 
@@ -39,8 +39,8 @@ cd src && wget https://huggingface.co/TheBloke/OpenHermes-2.5-Mistral-7B-GGUF/re
 The first approach, which also obtained the highest recall amongst submissions, is based on the following steps.
 
 #### 1. Begin with Task A
-crowd-annotated data and map the labels to binary, i.e., assigning the label 'a' to the value -1, and the labels 'b', 'c', and 'd' to the value +1.
-We fit a scikit learn logistic regression classifier on tf-idf features \cite{scikit-learn}. Tokenization is done using a regular expression of the form ```r'\b[^\d\W]+\b'``` and we employ a range of n-grams between 2 and 4 words. We cross-validate several models on different subsamples of risk annotations labeled as follows: 
+Use [crowd-annotated data](https://aclanthology.org/W19-3003/)  and map the labels to binary, i.e., assigning the label 'a' to the value -1, and the labels 'b', 'c', and 'd' to the value +1.
+We cross-validate several models on [different subsamples of risk annotations](https://aclanthology.org/W18-0603/) labeled as follows: 
 
 - **1.1 Test** - a model trained solely on Task A test set (186 posts)
 - **1.2 TaskA** a model trained on the entire Task A
@@ -56,8 +56,8 @@ We use a simple linear explainer that assumes feature independence and ranks fea
 Requires matching the tokenized features from our tf-idf extractor to the text. 
 For highlight selection, we test:
 
-- **option 3.1** - highlights consisting of a context window of 14 words before and after each matched feature, not exceeding the sentence boundary
-- ** option 3.2** - highlights consisting of entire sentences where important features are discovered in the original text
+- **3.1 context window** - highlights consisting of a context window of 14 words before and after each matched feature, not exceeding the sentence boundary
+- **3.2 entire sentences** - highlights consisting of entire sentences where important features are discovered in the original text
 
 #### 4. Summarization
 
@@ -72,7 +72,8 @@ The content body consists in the concatenation of important sentences instead of
 
 
 
-### Large Language Models
+### B. Large Language Models
+The pipeline can be summarized as follows:
 
 - prompt the model using langchain to extract highlights from the texts for a number of $K=8$ times
 - parse the LLM output and extract highlights from between quotation marks
@@ -105,22 +106,23 @@ Evaluation scores of our systems in comparison to other participants in the Shar
 
 
 ## Topics
+The main topics in the dataset revolve around feelings of despair, hopelessness, socioeconomic hardships, and family conflicts. Our brief analyses indicate that the texts contain strong signals for suicide and that very few subtleties can be observed in the assessment of risk degrees.
 
-Several key phrases are extracted using LLM prompts. Multiple runs tend to generate different keyword results depending on random initialization. Here, we present the result with a high diversity of topic summaries. 
-Upon close inspection, the main topics in the dataset revolve around feelings of despair, hopelessness, socioeconomic hardships, and family conflicts. Our brief analyses indicate that the texts contain strong signals for suicide and that very few subtleties can be observed in the assessment of risk degrees.
-
-<div style="width: 100%;">
-  <img width="600" src="https://github.com/nlp-unibuc/clpsych24-task/blob/main/img/topics.png?raw=true">
+<div align="center" style="width: 100%;">
+  <img width="800" src="https://github.com/nlp-unibuc/clpsych24-task/blob/main/img/topics.png?raw=true">
 </div>
 
 
 ## Feature Importance
-<div style="width: 100%;">
-  <img width="600" src="https://github.com/nlp-unibuc/clpsych24-task/blob/main/img/violins.png?raw=true">
-</div>
 
 Given the surprising efficacy of the traditional machine learning model, we ask whether sentences containing important features have specific linguistic characteristics. Sentences are divided into two categories: **important** if they contain important features for classification and with the label **other** otherwise. 
-Our statistical analyses indicate that important sentences are generally more likely to have pronouns, verbs, and adjectives. In terms of mean value, pronouns and verbs are statistically different at a p-value $< 0.05$ in important sentences more often than in the rest. Similarly, mean sentence lengths are statistically larger in important sentences than in the other ones.
+
+<div align="center" style="width: 100%;">
+  <img width="800" src="https://github.com/nlp-unibuc/clpsych24-task/blob/main/img/violins.png?raw=true">
+</div>
+
+
+Our analyses indicate that important sentences are generally more likely to have pronouns, verbs, and adjectives. In terms of mean value, pronouns and verbs are statistically different at a p-value $< 0.05$ in important sentences more often than in the rest. Similarly, mean sentence lengths are statistically larger in important sentences than in the other ones.
 Adverbs show no difference between the two classes, and adjectives and nouns obtain a p-value of $0.6$ after 100,000 permutations.  
 
 Our brief analyses show that important sentences have different (statistically significant) linguistic patterns that can distinguish them from the rest. We believe that this could be one of the reasons behind the good evaluation scores and the suitability of the GOML approach to extract highlights from this particular dataset.
