@@ -1,0 +1,7 @@
+pandas
+scikit-learn
+shap==0.44
+nltk
+spacy
+pytextrank
+langchain==0.1.12
